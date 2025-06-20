@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joki Tugas Boy - Jasa Tugas Kuliah & Sekolah Terpercaya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d4b44, #101815);
+            color: #f5f5f5;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d0d0d0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #f5f5f5;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d4b44, #3c5c54, #101815);
+            color: #f5f5f5;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #f5d76e);
+            color: #21484b;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0 80px;
+            background: #e8e8e8;
+        }
+
+        /* FIX: Simplified heading style untuk kompatibilitas mobile */
+        .features h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 4rem;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            color: #1f4037;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Fallback untuk browser yang mendukung background-clip */
+        @supports (-webkit-background-clip: text) {
+            .features h2 {
+                background: linear-gradient(45deg, #1f4037, #2d4b44);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #21484b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #21484b;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #21484b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            color: #21484b;
+            margin-bottom: 1rem;
+        }
+
+        .service-item h4 {
+            color: #21484b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #e8e8e8;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #21484b;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #21484b;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2d4b44, #3c5c54, #101815);
+            color: #f5f5f5;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #d4af37, #f5d76e);
+            color: #21484b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1f21;
+            color: #f5f5f5;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #21484b;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            /* FIX: Pastikan heading terlihat di mobile */
+            .features h2 {
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
+                padding: 0 10px;
+                color: #1f4037 !important;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i> JB
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="animate-fadeInUp">Joki Tugas Boy</h1>
+            <p class="animate-fadeInUp">Solusi Terpercaya untuk Semua Kebutuhan Tugas Kuliah & Sekolah Anda</p>
+            <a href="https://wa.me/62895620771839" target="_blank" class="cta-button animate-fadeInUp">
+                CHAT ADMIN
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="keunggulan">
+        <div class="container">
+            <h2>MENGAPA PILIH JOKI TUGAS BOY?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Pengerjaan Cepat</h3>
+                    <p>Kami mengerjakan tugas Anda dengan cepat tanpa mengurangi kualitas. Deadline ketat? Tidak masalah!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Kualitas Terjamin</h3>
+                    <p>Tim profesional kami memastikan setiap tugas dikerjakan dengan standar akademik tertinggi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Aman & Privasi</h3>
+                    <p>Kerahasiaan dan keamanan data Anda adalah prioritas utama kami. Dijamin aman!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Harga Terjangkau</h3>
+                    <p>Dapatkan layanan berkualitas premium dengan harga yang ramah di kantong mahasiswa.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support 24/7</h3>
+                    <p>Tim customer service kami siap membantu Anda kapan saja, 24 jam sehari 7 hari seminggu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <h3>Revisi Gratis</h3>
+                    <p>Tidak puas dengan hasil? Kami memberikan revisi gratis hingga Anda benar-benar puas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <div class="container">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-keyboard"></i>
+                    <h4>Jasa Ketik Digital</h4>
+                    <p>Pengetikan dokumen digital dengan akurat dan rapi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-presentation"></i>
+                    <h4>Pembuatan PowerPoint</h4>
+                    <p>Slide presentasi profesional dan menarik</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Uji SPSS</h4>
+                    <p>Deskriptif, Korelasi, Uji T, ANOVA, Regresi, Chi Square</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-globe"></i>
+                    <h4>Pembuatan Website</h4>
+                    <p>Website profesional sesuai kebutuhan bisnis</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-file-contract"></i>
+                    <h4>Pembuatan Proposal</h4>
+                    <p>Proposal penelitian dan bisnis yang berkualitas</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-calculator"></i>
+                    <h4>Jurnal Akuntansi</h4>
+                    <p>Penyusunan jurnal akuntansi dan laporan keuangan</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Makalah</h4>
+                    <p>Makalah akademik dengan referensi lengkap</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-table"></i>
+                    <h4>Tabulasi Data</h4>
+                    <p>Pengolahan dan tabulasi data penelitian</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bookmark"></i>
+                    <h4>Resume Materi</h4>
+                    <p>Ringkasan materi kuliah yang mudah dipahami</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-search"></i>
+                    <h4>Laporan Penelitian</h4>
+                    <p>Laporan penelitian lengkap dengan metodologi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-newspaper"></i>
+                    <h4>Buat Artikel Jurnal</h4>
+                    <p>Penulisan artikel jurnal sesuai standar publikasi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Cari Artikel Jurnal</h4>
+                    <p>Pencarian artikel jurnal relevan untuk penelitian</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-university"></i>
+                    <h4>Cari Jurnal Nasional & Internasional</h4>
+                    <p>Pencarian jurnal nasional dan internasional terakreditasi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-sitemap"></i>
+                    <h4>Pembuatan Mind Mapping</h4>
+                    <p>Mind map kreatif untuk visualisasi konsep</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Cek Tingkat Plagiasi</h4>
+                    <p>Pengecekan plagiasi dengan tools terpercaya</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h4>Jasa Tulis Tangan</h4>
+                    <p>Surat lamaran TNI, Polri dan dokumen lainnya</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-palette"></i>
+                    <h4>Desain CV, Poster & ID Card</h4>
+                    <p>Desain profesional untuk berbagai kebutuhan</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-edit"></i>
+                    <h4>Pembuatan Essay</h4>
+                    <p>Essay berkualitas dengan argumentasi kuat</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-file-word"></i>
+                    <h4>Tugas Paper</h4>
+                    <p>Paper akademik sesuai format dan standar</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-book"></i>
+                    <h4>Pembuatan Modul</h4>
+                    <p>Modul pembelajaran dan training</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <h4>Jasa Parafrase</h4>
+                    <p>Parafrase dokumen untuk menghindari plagiasi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-images"></i>
+                    <h4>Editing Foto & Logo</h4>
+                    <p>Edit foto, pembuatan logo dan spanduk</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-video"></i>
+                    <h4>Editing Video</h4>
+                    <p>Edit video untuk presentasi dan promosi</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-plus"></i>
+                    <h4>Dan Lainnya</h4>
+                    <p>Konsultasi untuk jenis tugas lainnya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <h2>Apa Kata Mereka?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Pelayanan sangat memuaskan! Tugas dikerjakan dengan cepat dan hasilnya berkualitas. Sangat recommended!"
+                    </div>
+                    <div class="testimonial-author">- Sarah, Mahasiswa UNJA</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Admin responsif dan profesional. Hasil tugas sesuai dengan yang diminta. Terima kasih Joki Tugas Boy!"
+                    </div>
+                    <div class="testimonial-author">- Dimas, Mahasiswa UNJA</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Harga terjangkau tapi kualitas tidak murahan. Puas banget dengan pelayanannya. Pasti langganan!"
+                    </div>
+                    <div class="testimonial-author">- Rina, Mahasiswa UIN STS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <h2>Siap Membantu Tugas Anda!</h2>
+            <p>Jangan biarkan tugas menumpuk! Hubungi kami sekarang dan dapatkan solusi terbaik.</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/62895620771839" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+                <a href="https://www.instagram.com/jokitugasboy?igsh=MXhwM2d1bzE4cm9kNg==" class="contact-btn" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
+                <a href="mailto:stynlisboy25@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Joki Tugas Boy. All rights reserved. | Solusi Terpercaya untuk Semua Tugas Anda</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/62895620771839" class="whatsapp-float pulse" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .service-item, .testimonial').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(45, 75, 68, 0.95), rgba(16, 24, 21, 0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2d4b44, #101815)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
